@@ -1,12 +1,22 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import defaultState from '@/defaultState'
 
 export const useListsStore = defineStore('lists', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+  const listsData = ref([...defaultState])
 
-  return { count, doubleCount, increment }
+  function getItem(listId, itemId) {
+    const list = listsData.value.find(list => list.id === listId);
+    const item = list.items.find(item => item.id === itemId);
+    return item
+  }
+  function setColor({ listId, itemId, hexCode }) {
+    const item = getItem(listId, itemId);
+    item.color = hexCode;
+  }
+  function setQuantity({ listId, itemId, quantity }) {
+    const item = getItem(listId, itemId);
+    item.quantity = quantity;
+  }
+  return { listsData, setColor, setQuantity }
 })

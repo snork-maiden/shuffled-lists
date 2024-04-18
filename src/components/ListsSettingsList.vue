@@ -14,7 +14,7 @@ let isExpand = ref(false)
 </script>
 
 <template>
-  <button type="button" class="expand" @click="isExpand = !isExpand">expand</button>
+  <button type="button" class="expand" @click="isExpand = !isExpand">{{isExpand ? 'hide' : 'expand'}}</button>
   <input type="checkbox" name="display-list-btn" :id="`display-list-${id}-btn`" class="display" />
   <label :for="`display-list-${id}-btn`" class="title">{{listData.name}}</label>
   <ul class="items" v-if="isExpand">

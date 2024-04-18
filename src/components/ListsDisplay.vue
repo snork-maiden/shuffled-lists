@@ -1,14 +1,18 @@
 <script setup>
-import { ref } from 'vue'
-let isOrdered = ref(true)
+import { useListsStore } from '../stores/lists'
+import ListsDisplayIList from './ListsDisplayIList.vue'
+const store = useListsStore()
 </script>
 
 <template>
-  <section class="list">
-    <h2 class="title">List 1</h2>
-    <button type="button" class="shuffle" @click="isOrdered = !isOrdered">Shuffle</button>
-    
-  </section>
+  <div class="wrapper">
+    <ListsDisplayIList
+      class="list"
+      v-for="list of store.listsData"
+      :key="list.id"
+      :list-data="list"
+    />
+  </div>
 </template>
 
 <style scoped></style>

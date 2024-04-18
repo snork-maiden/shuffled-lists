@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  hexColor: {
+  color: {
     type: String,
     required: true
   }
@@ -13,8 +13,8 @@ defineProps({
 <style scoped>
 .box {
   display: block;
-  width: 10px;
-  height: 10px;
-  background-color: v-bind('hexColor');
+  width: 15px;
+  aspect-ratio: 1/1;
+  background-color: v-bind('color');
 }
 </style>

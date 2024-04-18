@@ -8,7 +8,7 @@ const store = useListsStore()
   <div class="wrapper">
     <ListsDisplayIList
       class="list"
-      v-for="list of store.listsData"
+      v-for="list of store.listsWithSelectedItems"
       :key="list.id"
       :list-data="list"
     />

@@ -6,7 +6,7 @@ export const useListsStore = defineStore('lists', () => {
   const listsData = ref([...defaultState])
 
   const listsWithSelectedItems = computed(() => {
-    const listsWithoutUnselectedItems =  listsData.value.map(list => {
+    const listsWithoutUnselectedItems = listsData.value.map(list => {
       return {
         ...list,
         items: list.items.filter(item => item.selected)
@@ -33,6 +33,11 @@ export const useListsStore = defineStore('lists', () => {
     item.quantity = quantity;
   }
 
+  function decreaseQuantity(listId, itemId) {
+    const item = getItem(listId, itemId);
+    item.quantity -= 1;
+  }
+
   function selectList(listId) {
     getList(listId).items.forEach(item => item.selected = true)
   }
@@ -44,5 +49,5 @@ export const useListsStore = defineStore('lists', () => {
     const item = getItem(listId, itemId);
     item.selected = !item.selected
   }
-  return { listsData, listsWithSelectedItems, getItem, setColor, setQuantity, selectList, unselectList, toggleItemSelect }
+  return { listsData, listsWithSelectedItems, getItem, setColor, setQuantity, selectList, unselectList, toggleItemSelect, decreaseQuantity }
 })

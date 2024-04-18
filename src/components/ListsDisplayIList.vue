@@ -17,8 +17,8 @@ let isSorted = ref(true)
     <button type="button" class="shuffle" @click="isSorted = !isSorted">
       {{ isSorted ? 'Shuffle' : 'Sort' }}
     </button>
-    <ListsDisplayIListItemsSorted v-if="isSorted" :items="listData.items"/>
-    <ListsDisplayIListItemsShuffled v-else :items="listData.items"/>
+    <ListsDisplayIListItemsSorted v-if="isSorted" :items="listData.items" :list-id="listData.id"/>
+    <ListsDisplayIListItemsShuffled v-else :items="listData.items" :list-id="listData.id"/>
   </section>
 </template>
 

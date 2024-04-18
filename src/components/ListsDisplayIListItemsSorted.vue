@@ -1,9 +1,15 @@
 <script setup>
-import ItemCopy from './ItemCopy.vue';
+import { useListsStore } from '@/stores/lists'
+import ItemCopy from './ItemCopy.vue'
+const store = useListsStore()
 
- defineProps({
+defineProps({
   items: {
     type: Array,
+    required: true
+  },
+  listId: {
+    type: Number,
     required: true
   }
 })
@@ -11,7 +17,12 @@ import ItemCopy from './ItemCopy.vue';
 
 <template>
   <div class="item" v-for="item of items" :key="item.id">
-    <ItemCopy :color="item.color" v-for="copy of item.quantity" :key="copy"/>
+    <ItemCopy
+      :color="item.color"
+      v-for="copy of item.quantity"
+      :key="copy"
+      @click="store.decreaseQuantity(listId, item.id)"
+    />
   </div>
 </template>
 

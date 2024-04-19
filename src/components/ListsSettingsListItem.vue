@@ -33,6 +33,7 @@ watch(storeQuantity, (storeQuantity) => (quantity.value = storeQuantity))
   <MyCheckbox :checked="itemData.selected" @click="store.toggleItemSelect(listId, itemId)" />
 
   <h4 class="title">{{ itemData.name }}</h4>
+  <!-- тут нужен max или другой формат отображения для очень больших чисел, но, поскольку он не указан в ТЗ, я не стала указывать -->
   <input
     type="number"
     class="quantity"

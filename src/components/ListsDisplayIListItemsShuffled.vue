@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import ItemCopy from './ItemCopy.vue'
-import { useListsStore } from '@/stores/lists';
+import { useListsStore } from '@/stores/lists'
 const store = useListsStore()
 
 const props = defineProps({
@@ -32,20 +32,20 @@ function shuffle(arr) {
 </script>
 
 <template>
-    <div class="item">
-      <ItemCopy
-        v-for="(copy, index) of shuffle(itemsCopies)"
-        :color="copy.color"
-        :key="index"
-        @click="store.decreaseQuantity(listId, copy.id)"
-      />
-    </div>
+  <div class="item">
+    <ItemCopy
+      v-for="(copy, index) of shuffle(itemsCopies)"
+      :color="copy.color"
+      :key="index"
+      @click="store.decreaseQuantity(listId, copy.id)"
+    />
+  </div>
 </template>
 
 <style scoped>
 .item {
   display: flex;
   flex-wrap: wrap;
-  gap: var( --item-copy-gap);
+  gap: var(--item-copy-gap);
 }
 </style>

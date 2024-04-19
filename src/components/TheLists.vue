@@ -1,14 +1,10 @@
 <script setup>
-import ListsDisplay from './ListsDisplay.vue';
-import ListsSettings from './ListsSettings.vue';
-
-
+import ListsDisplay from './ListsDisplay.vue'
+import ListsSettings from './ListsSettings.vue'
 </script>
 
 <template>
-    <ListsSettings/>
-    <ListsDisplay />
+  <ListsSettings />
+  <ListsDisplay />
 </template>
-<style scoped>
-
-</style>
+<style scoped></style>

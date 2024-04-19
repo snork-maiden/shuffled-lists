@@ -22,9 +22,9 @@ const id = computed(() => props.listData.id)
     <ButtonWithIcon @click="isExpand = !isExpand">
       <IconExpand :role="isExpand ? 'hide' : 'expand'" />
     </ButtonWithIcon>
-  
+
     <CheckboxWithDot :list-data="listData" />
-  
+
     <h3 class="title">{{ listData.name }}</h3>
   </div>
   <ul class="items" v-if="isExpand">
@@ -49,7 +49,7 @@ const id = computed(() => props.listData.id)
 .items {
   list-style: none;
   display: grid;
-  gap: .5em;
+  gap: 0.5em;
   padding-top: 1em;
 }
 

@@ -31,10 +31,11 @@ defineProps({
 <style scoped>
 .wrapper {
   display: grid;
-  gap: var( --item-copy-gap);
+  gap: var(--item-copy-gap);
 }
 .item {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--item-copy-gap);
 }
 </style>

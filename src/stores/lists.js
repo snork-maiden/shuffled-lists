@@ -53,5 +53,5 @@ export const useListsStore = defineStore('lists', () => {
     item.selected = !item.selected
   }
 
-  return { listsData, listsWithSelectedItems, getItem: findItem, setColor, setQuantity, selectList, unselectList, toggleItemSelect, decreaseQuantity }
+  return { listsData, listsWithSelectedItems, findItem, setColor, setQuantity, selectList, unselectList, toggleItemSelect, decreaseQuantity }
 })

@@ -15,7 +15,7 @@ const props = defineProps({
   }
 })
 
-const itemData = computed(() => store.getItem(props.listId, props.itemId))
+const itemData = computed(() => store.findItem(props.listId, props.itemId))
 
 const quantity = ref()
 const color = ref()

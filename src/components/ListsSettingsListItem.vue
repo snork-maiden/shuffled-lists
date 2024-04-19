@@ -1,6 +1,7 @@
 <script setup>
 import { useListsStore } from '@/stores/lists'
 import { computed, onMounted, ref, watch } from 'vue'
+import MyCheckbox from './MyCheckbox.vue'
 const store = useListsStore()
 
 const props = defineProps({
@@ -29,17 +30,9 @@ watch(storeQuantity, (storeQuantity) => (quantity.value = storeQuantity))
 </script>
 
 <template>
-  <input
-    type="checkbox"
-    name="display-item-list"
-    :id="`display-item-${itemData.id}-list-${listId}`"
-    class="display"
-    :checked="itemData.selected"
-    @click="store.toggleItemSelect(listId, itemId)"
-  />
-  <label :for="`display-item-${itemData.id}-list-${listId}`" class="title">{{
-    itemData.name
-  }}</label>
+  <MyCheckbox :checked="itemData.selected" @click="store.toggleItemSelect(listId, itemId)" />
+
+  <h4 class="title">{{ itemData.name }}</h4>
   <input
     type="number"
     class="quantity"
@@ -61,18 +54,18 @@ watch(storeQuantity, (storeQuantity) => (quantity.value = storeQuantity))
 .title {
   font-size: 1.1em;
 }
-  .quantity {
-    padding: 0;
-    text-align: center;
-    width: 3em;
-    font: inherit;
-    color: inherit;
-    background: none;
-  }
+.quantity {
+  padding: 0;
+  text-align: center;
+  width: 3em;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
 
-  .color-picker {
-    cursor: pointer;
-    width: 2.5em;
-    height: 2.5em;
-  }
+.color-picker {
+  cursor: pointer;
+  width: 2.5em;
+  height: 2.5em;
+}
 </style>

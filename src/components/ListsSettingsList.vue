@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import ListsSettingsListItem from './ListsSettingsListItem.vue'
 import IconExpand from './icons/IconExpand.vue'
 import ButtonWithIcon from './ButtonWithIcon.vue'
-import ListsSettingsListCheckbox from './ListsSettingsListCheckbox.vue'
+import CheckboxWithDot from './CheckboxWithDot.vue'
 
 const props = defineProps({
   listData: {
@@ -23,7 +23,7 @@ const id = computed(() => props.listData.id)
       <IconExpand :role="isExpand ? 'hide' : 'expand'" />
     </ButtonWithIcon>
   
-    <ListsSettingsListCheckbox :list-data="listData" />
+    <CheckboxWithDot :list-data="listData" />
   
     <h3 class="title">{{ listData.name }}</h3>
   </div>

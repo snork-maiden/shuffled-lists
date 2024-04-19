@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useListsStore } from '@/stores/lists'
+import IconCheckmark from './icons/IconCheckmark.vue'
 const store = useListsStore()
 
 const props = defineProps({
@@ -12,18 +13,25 @@ const props = defineProps({
 
 let isChecked = ref(false)
 let showDot = ref(false)
+let showCheckmark = ref(false)
 
 const id = computed(() => props.listData.id)
 const items = computed(() => props.listData.items)
 const selectedLength = computed(() => items.value.filter((item) => item.selected).length)
 
 watch(selectedLength, (selectedLength) => {
-  console.log(selectedLength, props.listData.items.length)
-  if (selectedLength && selectedLength < props.listData.items.length) {
-    showDot.value = true
+  if (selectedLength === props.listData.items.length) {
+    showCheckmark.value = true
+    showDot.value = false
     return
   }
-  showDot.value = false
+  showCheckmark.value = false
+
+  if (!selectedLength) {
+    showDot.value = false
+    return
+  }
+  showDot.value = true
 })
 
 function handleClick() {
@@ -45,6 +53,7 @@ function handleClick() {
       v-model="isChecked"
     />
     <span v-if="showDot" class="dot"></span>
+    <span v-if="showCheckmark" class="checkmark"><IconCheckmark /></span>
   </label>
 </template>
 
@@ -61,11 +70,16 @@ function handleClick() {
 .dot {
   width: 8px;
   height: 8px;
-  background-color: black;
+  background-color: #194485;
   border-radius: 50%;
 }
 
 .input {
   display: none;
+}
+
+.checkmark {
+  display: grid;
+  place-items: center;
 }
 </style>

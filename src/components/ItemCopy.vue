@@ -13,7 +13,7 @@ defineProps({
 <style scoped>
 .box {
   display: block;
-  width: 15px;
+  width: 0.9em;
   aspect-ratio: 1/1;
   background-color: v-bind('color');
 }

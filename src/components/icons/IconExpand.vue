@@ -17,16 +17,20 @@ defineProps({
     width="25"
     height="20"
     viewBox="0 0 18 18"
+    class="expand"
     :class="{ hide: role === 'hide' }"
   >
     <title>{{ role }}</title>
     <path
-      fill="#c94cce"
+      fill="#fff"
       d="M5 18a1 1 0 0 1-.4 0 1 1 0 0 1-.6-1V1A1 1 0 0 1 5.7.3l8 8a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-.7.3zM6 3.4v11.2L11.6 9z"
     />
   </svg>
 </template>
 <style scoped>
+.expand {
+  transition: transform 0.2s;
+}
 .hide {
   transform: rotate(90deg);
 }

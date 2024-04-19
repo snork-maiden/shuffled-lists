@@ -15,4 +15,10 @@ const store = useListsStore()
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  max-width: 1000px;
+  display: grid;
+  gap: 2em;
+}
+</style>

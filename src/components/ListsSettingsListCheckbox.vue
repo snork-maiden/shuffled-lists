@@ -50,6 +50,7 @@ function handleClick() {
 
 <style scoped>
 .checkbox {
+  cursor: pointer;
   display: grid;
   place-items: center;
   width: 20px;

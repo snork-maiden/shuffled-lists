@@ -1,7 +1,13 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
   padding: 2rem;
   font-weight: normal;
 }
+
+.block {
+  background-color: var(--block-color-background);
+  padding: var(--block-padding);
+  border-radius: var(--block-border-radius);
+}
+

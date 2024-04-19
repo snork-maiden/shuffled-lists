@@ -18,13 +18,15 @@ const id = computed(() => props.listData.id)
 </script>
 
 <template>
-  <ButtonWithIcon @click="isExpand = !isExpand">
-    <IconExpand :role="isExpand ? 'hide' : 'expand'" />
-  </ButtonWithIcon>
+  <div class="wrapper">
+    <ButtonWithIcon @click="isExpand = !isExpand">
+      <IconExpand :role="isExpand ? 'hide' : 'expand'" />
+    </ButtonWithIcon>
   
-  <ListsSettingsListCheckbox :list-data="listData" />
-
-  <h3 class="title">{{ listData.name }}</h3>
+    <ListsSettingsListCheckbox :list-data="listData" />
+  
+    <h3 class="title">{{ listData.name }}</h3>
+  </div>
   <ul class="items" v-if="isExpand">
     <li class="item" v-for="item of listData.items" :key="item.id">
       <ListsSettingsListItem :item-id="item.id" :list-id="id" />
@@ -33,9 +35,27 @@ const id = computed(() => props.listData.id)
 </template>
 
 <style scoped>
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
 .expand {
   display: flex;
   background: none;
   border: none;
+}
+
+.items {
+  list-style: none;
+  display: grid;
+  gap: .5em;
+  padding-top: 1em;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
 }
 </style>

@@ -32,20 +32,20 @@ function shuffle(arr) {
 </script>
 
 <template>
-  <div class="item">
-    <ItemCopy
-      v-for="(copy, index) of shuffle(itemsCopies)"
-      :color="copy.color"
-      :key="index"
-      @click="store.decreaseQuantity(listId, copy.id)"
-    />
-  </div>
+    <div class="item">
+      <ItemCopy
+        v-for="(copy, index) of shuffle(itemsCopies)"
+        :color="copy.color"
+        :key="index"
+        @click="store.decreaseQuantity(listId, copy.id)"
+      />
+    </div>
 </template>
 
 <style scoped>
 .item {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3em;
+  gap: var( --item-copy-gap);
 }
 </style>

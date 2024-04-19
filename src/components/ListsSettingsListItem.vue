@@ -55,7 +55,24 @@ watch(storeQuantity, (storeQuantity) => (quantity.value = storeQuantity))
     v-model="color"
     @change="store.setColor({ listId, itemId, color })"
   />
-  {{ color }}
 </template>
 
-<style scoped></style>
+<style scoped>
+.title {
+  font-size: 1.1em;
+}
+  .quantity {
+    padding: 0;
+    text-align: center;
+    width: 3em;
+    font: inherit;
+    color: inherit;
+    background: none;
+  }
+
+  .color-picker {
+    cursor: pointer;
+    width: 2.5em;
+    height: 2.5em;
+  }
+</style>

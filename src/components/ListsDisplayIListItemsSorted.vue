@@ -16,19 +16,25 @@ defineProps({
 </script>
 
 <template>
-  <div class="item" v-for="item of items" :key="item.id">
-    <ItemCopy
-      :color="item.color"
-      v-for="copy of item.quantity"
-      :key="copy"
-      @click="store.decreaseQuantity(listId, item.id)"
-    />
+  <div class="wrapper">
+    <div class="item" v-for="item of items" :key="item.id">
+      <ItemCopy
+        :color="item.color"
+        v-for="copy of item.quantity"
+        :key="copy"
+        @click="store.decreaseQuantity(listId, item.id)"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
+.wrapper {
+  display: grid;
+  gap: var( --item-copy-gap);
+}
 .item {
   display: flex;
-  gap: 0.3em;
+  gap: var(--item-copy-gap);
 }
 </style>

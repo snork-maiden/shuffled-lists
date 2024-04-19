@@ -1,6 +1,6 @@
 <script setup>
 import { useListsStore } from '@/stores/lists'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 const store = useListsStore()
 
 const props = defineProps({
@@ -18,11 +18,14 @@ const itemData = computed(() => store.getItem(props.listId, props.itemId))
 
 const quantity = ref()
 const color = ref()
+const storeQuantity = computed(() => itemData.value.quantity)
 
 onMounted(() => {
   quantity.value = itemData.value.quantity
   color.value = itemData.value.color
 })
+
+watch(storeQuantity, (storeQuantity) => (quantity.value = storeQuantity))
 </script>
 
 <template>
@@ -37,7 +40,14 @@ onMounted(() => {
   <label :for="`display-item-${itemData.id}-list-${listId}`" class="title">{{
     itemData.name
   }}</label>
-  <input type="number" class="quantity" min="0" step="1"  v-model="quantity" @change="store.setQuantity({ listId, itemId, quantity })"/>
+  <input
+    type="number"
+    class="quantity"
+    min="0"
+    step="1"
+    v-model="quantity"
+    @change="store.setQuantity({ listId, itemId, quantity })"
+  />
 
   <input
     type="color"

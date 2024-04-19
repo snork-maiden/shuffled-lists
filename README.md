@@ -1,14 +1,14 @@
-# shuffled-lists
+# Shuffled lists
 
-This template should help get you started developing with Vue 3 in Vite.
+Shuffled Lists is a Vue.js application designed to manage and display lists of items. It provides features such as sorting, filtering, and shuffling of lists, offering a dynamic and interactive user experience.
 
-## Recommended IDE Setup
+## Stack 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- **Vue.js (v3.4.21)**
+- **Pinia (v2.1.7)**
+- **Vite (v5.2.8)**
+- **ESLint (v8.57.0)**
+- **Prettier (v3.2.5)**
 
 ## Project Setup
 
